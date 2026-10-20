@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-20",
+  "source": "actual STM32 board via COM7, USB-SERIAL CH340",
+  "baud": 115200,
+  "commands_sent": "log export\r\n",
+  "export_module": "Tools/export_history.py",
+  "export_module_sha256": "5d58a52a775a7535cde139afad1ca99116b81b19c9bf4c4095c61adba9348932",
+  "snapshot": 1141,
+  "rows": 1136,
+  "skipped_corrupt_slots": 0,
+  "validated_end_state": "OK",
+  "newest_sequence": 1141,
+  "oldest_sequence": 1,
+  "columns": [
+    "sequence",
+    "session",
+    "uptime_s",
+    "beijingtime",
+    "temp_c",
+    "humidity_pct",
+    "valid",
+    "alarm",
+    "time_source"
+  ],
+  "time_source_counts": {
+    "rtc": 532,
+    "estimated": 273,
+    "unknown": 331
+  },
+  "invalid_sample_rows": 9,
+  "duration_seconds": 27.86,
+  "file": "F103_历史导出_20261020_01.csv",
+  "bytes": 57803,
+  "sha256": "5a2561dc91dd974623cf6d4a67b016b83ff203279accf337863bbc7f50ec9d0d",
+  "hardware_verified": [
+    "CSV export normal path and PC validation"
+  ],
+  "not_verified": [
+    "cancel",
+    "in-flight command rejection",
+    "clear",
+    "concurrent alarm response",
+    "long-run stability"
+  ]
+}

@@ -1,0 +1,108 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file         stm32f1xx_hal_msp.c
+  * @brief        This file provides code for the MSP Initialization
+  *               and de-Initialization codes.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+/* USER CODE BEGIN Includes */
+#include "project_config.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN TD */
+
+/* USER CODE END TD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN Define */
+
+/* USER CODE END Define */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN Macro */
+
+/* USER CODE END Macro */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* External functions --------------------------------------------------------*/
+/* USER CODE BEGIN ExternalFunctions */
+
+/* USER CODE END ExternalFunctions */
+
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+/**
+  * Initializes the Global MSP.
+  */
+void HAL_MspInit(void)
+{
+
+  /* USER CODE BEGIN MspInit 0 */
+
+  /* USER CODE END MspInit 0 */
+
+  __HAL_RCC_AFIO_CLK_ENABLE();
+  __HAL_RCC_PWR_CLK_ENABLE();
+
+  /* System interrupt init*/
+  /* PendSV_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
+
+  /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled
+  */
+  __HAL_AFIO_REMAP_SWJ_NOJTAG();
+
+  /* USER CODE BEGIN MspInit 1 */
+
+  /* USER CODE END MspInit 1 */
+}
+
+/* USER CODE BEGIN 1 */
+/* UART pins and their initial levels are configured only in gpio.c. */
+void HAL_UART_MspInit(UART_HandleTypeDef *uart)
+{
+  if (uart->Instance == USART1)
+  {
+    __HAL_RCC_USART1_CLK_ENABLE();
+    HAL_NVIC_DisableIRQ(USART1_IRQn);
+    HAL_NVIC_ClearPendingIRQ(USART1_IRQn);
+    HAL_NVIC_SetPriority(USART1_IRQn, SERIAL_IRQ_PRIORITY, 0U);
+  }
+}
+
+void HAL_UART_MspDeInit(UART_HandleTypeDef *uart)
+{
+  if (uart->Instance == USART1)
+  {
+    HAL_NVIC_DisableIRQ(USART1_IRQn);
+    HAL_NVIC_ClearPendingIRQ(USART1_IRQn);
+    __HAL_RCC_USART1_CLK_DISABLE();
+  }
+}
+/* USER CODE END 1 */

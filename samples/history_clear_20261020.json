@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-20",
+  "source": "actual COM7 board",
+  "passed": true,
+  "backup": {
+    "file": "F103_清空前历史备份_20261020_01.csv",
+    "rows": 1315,
+    "snapshot": 1320,
+    "sha256": "81394f937930da79df4d7456ab5f424c2bf91c492c82d5b8d59a450f1c9350f2"
+  },
+  "before_save": "OK save; STORED",
+  "clock_before": "TIME 2026 10 20 17:24:36 beijingtime uptime=5172",
+  "before_status": {
+    "ready": 1,
+    "slots": 129794,
+    "next": 1324,
+    "written": 520,
+    "errors": 0,
+    "period": 10000,
+    "used": 0,
+    "cap": 8,
+    "peak": 1,
+    "in": 520,
+    "full": 0,
+    "missed": 0,
+    "failed": 0
+  },
+  "old_recent_records": [
+    "LOG 1323,803,5200,2026 10 20 17:25:05,25.9,58.0,valid=1,alarm=0,time=rtc",
+    "LOG 1322,803,5190,2026 10 20 17:24:55,25.9,58.0,valid=1,alarm=0,time=rtc",
+    "LOG 1321,803,5180,2026 10 20 17:24:45,25.9,58.0,valid=1,alarm=0,time=rtc",
+    "OK log read count=3; NEWEST_FIRST"
+  ],
+  "confirmation_prompt": "CONFIRM log clear confirm within 10000ms; HISTORY_ONLY",
+  "clear_reply": "OK log clear; next=1324 discarded=0; SETTINGS_KEPT",
+  "clear_next_sequence": 1324,
+  "discarded_pending": 0,
+  "old_history_page": [
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "PAGE_BEGIN snapshot=1323 order=NEWEST_FIRST",
+    "PAGE_END count=0 next=0 skipped=0 state=OK"
+  ],
+  "after_save": "OK save; UNCHANGED",
+  "clock_after": "TIME 2026 10 20 17:25:12 beijingtime uptime=5206",
+  "new_records": [
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "LOG 1324,803,5210,2026 10 20 17:25:16,25.9,58.0,valid=1,alarm=0,time=rtc",
+    "OK log read count=1; NEWEST_FIRST"
+  ],
+  "after_status": [
+    "LOG ready=1 slots=129794 next=1325 written=521 errors=0 period=10000ms",
+    "LOG_QUEUE used=0 cap=8 peak=1 in=521 full=0 missed=0 failed=0"
+  ],
+  "diagnostics": [
+    "RTOS heap_total=8192B free=760B min=760B state=OK",
+    "TASK envMonitorTask total=256W min_free=172W/688B state=OK",
+    "TASK alarmTask total=256W min_free=176W/704B state=OK",
+    "TASK serialTask total=384W min_free=208W/832B state=OK",
+    "TASK storageTask total=384W min_free=164W/656B state=OK",
+    "TASK idle total=128W min_free=111W/444B state=OK"
+  ],
+  "all_diagnostics_ok": true,
+  "not_verified": [
+    "physical alarm response",
+    "long-run stability"
+  ],
+  "reset_persistence": {
+    "date": "2026-10-20",
+    "status": "PASS",
+    "evidence": "User confirmed manual RESET test succeeded; no raw serial output supplied",
+    "checks": [
+      "Pre-clear history remains inaccessible using log page 1324 3",
+      "Returned history sequences are at least 1324",
+      "OLED thresholds remain unchanged"
+    ]
+  },
+  "power_cycle_persistence": {
+    "date": "2026-10-20",
+    "status": "PASS",
+    "evidence": "User reported the instructed complete power-cycle test normal; no raw serial output supplied",
+    "checks": [
+      "Pre-clear history remains inaccessible using log page 1324 3",
+      "Returned history sequences are at least 1324",
+      "Log status ready=1 and errors=0",
+      "OLED thresholds remain unchanged"
+    ]
+  }
+}

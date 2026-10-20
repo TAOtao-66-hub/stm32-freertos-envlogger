@@ -1,0 +1,35 @@
+# Keil build output and local debug/session settings
+Objects/
+Listings/
+*.uvoptx
+*.uvguix.*
+*.uvgui.*
+*.uvmpw
+*.o
+*.obj
+*.d
+*.crf
+*.axf
+*.elf
+*.map
+*.lst
+*.lnp
+*.dep
+*.bak
+*.log
+DebugConfig/
+MXTmpFiles/
+Tools/.cubemx_state/
+.mxproject
+# Host development artifacts
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+MDK-ARM/F103_FreeRTOS_CubeMX/

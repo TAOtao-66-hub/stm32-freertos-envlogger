@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-20",
+  "cancel": {
+    "date": "2026-10-20",
+    "source": "actual COM7 board",
+    "passed": true,
+    "checks": [
+      "mid-transfer log cancel returns CANCELLED",
+      "end count matches received partial rows",
+      "get responds after cancellation",
+      "log read returns three records after cancellation",
+      "history written counter grows over next normal period",
+      "ready remains one and error/drop counters do not increase"
+    ],
+    "export_begin": "CSV_BEGIN snapshot=1239 order=NEWEST_FIRST",
+    "export_end": "CSV_END rows=8 skipped=0 state=CANCELLED",
+    "partial_rows": 8,
+    "get_response": "get TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "before_status": [
+      "LOG ready=1 slots=129794 next=1240 written=436 errors=0 period=10000ms",
+      "LOG_QUEUE used=0 cap=8 peak=1 in=436 full=0 missed=0 failed=0"
+    ],
+    "after_status": [
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "ENV TEMP=25.9C HUM=58.0% SENSOR=OK",
+      "LOG ready=1 slots=129794 next=1242 written=438 errors=0 period=10000ms",
+      "LOG_QUEUE used=0 cap=8 peak=1 in=438 full=0 missed=0 failed=0"
+    ],
+    "diagnostics_after_export_and_cancel": [
+      "RTOS heap_total=8192B free=760B min=760B state=OK",
+      "TASK envMonitorTask total=256W min_free=172W/688B state=OK",
+      "TASK alarmTask total=256W min_free=176W/704B state=OK",
+      "TASK serialTask total=384W min_free=208W/832B state=OK",
+      "TASK storageTask total=384W min_free=170W/680B state=OK",
+      "TASK idle total=128W min_free=111W/444B state=OK"
+    ],
+    "all_diagnostics_ok": true,
+    "not_verified": [
+      "other-command isolation",
+      "clear",
+      "physical alarm response",
+      "long-run stability"
+    ]
+  },
+  "get_isolation": {
+    "date": "2026-10-20",
+    "source": "actual COM7 board",
+    "passed": true,
+    "export_begin": "CSV_BEGIN snapshot=1253 order=NEWEST_FIRST",
+    "export_end": "CSV_END rows=13 skipped=0 state=CANCELLED",
+    "partial_rows": 13,
+    "deferred_notice_after_csv_end": "ERR TRANSFER_BUSY; OTHER_COMMAND_OR_RX_ERROR_IGNORED; RESEND",
+    "resent_get_response": "get TEMP=25.9C HUM=58.0% SENSOR=OK",
+    "checks": [
+      "get sent during active export does not appear inside CSV",
+      "ENV and error text do not appear inside CSV",
+      "rejected-command notice is emitted after CSV_END",
+      "get succeeds when resent after transfer end"
+    ],
+    "not_verified": [
+      "parameter writes during transfer",
+      "clear",
+      "physical alarm response",
+      "long-run stability"
+    ]
+  }
+}
